@@ -1,8 +1,8 @@
-import ExpenseForm from "./view/expenseForm";
+import ClaimSubmissionForm from "./view/expenseForm";
 import './App.css';
 function App() {
   return (
-   <ExpenseForm />
+   <ClaimSubmissionForm />
     
   );
 }
