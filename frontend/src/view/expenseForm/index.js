@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Category from "../../components/Categories";
 
 const categories = [
   { name: "Telephone", maxAmount: 1000 },
@@ -107,17 +107,18 @@ const ExpenseClaimForm = () => {
     <form onSubmit={handleSubmit}>
       <Box sx={{ p: 4 }}>
         <Typography variant="h4" gutterBottom>
-          Expense Claim Form 
+          Expense Claim Form
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Select
+            <Category
               id="category"
               name="Category"
               label="Category"
               value={category}
               onChange={handleCategoryChange}
               fullWidth
+              select
               error={formErrors.category ? true : false}
             >
               <MenuItem value="">Select a category</MenuItem>
@@ -126,7 +127,9 @@ const ExpenseClaimForm = () => {
                   {category.name}
                 </MenuItem>
               ))}
-            </Select>
+            </Category>
+
+     
             {formErrors.category && (
               <Typography variant="caption" color="red">
                 {formErrors.category}
